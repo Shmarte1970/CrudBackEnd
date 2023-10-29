@@ -31,7 +31,7 @@ class Server {
         });
     }
     routes() {
-        this.app.get('/', (req, res, next) => {
+        this.app.get('/', (req, res) => {
             res.json({
                 msg: 'Api Working'
             });
@@ -43,12 +43,6 @@ class Server {
         this.app.use(express_1.default.json());
         // cors
         this.app.use((0, cors_1.default)());
-
-        this.app.use(function(req, res, next) {
-            res.header("Access-Control-Allow-Origin", "https://51.20.120.46"); // update to match the domain you will make the request from
-            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-            next();
-          });
     }
     dbConnect() {
         return __awaiter(this, void 0, void 0, function* () {
